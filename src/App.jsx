@@ -54,9 +54,9 @@ export default function App() {
   }, []);
 
   const packages = [
-    { name: "SEO", sessions: "12 buổi", duration: "x 2h30", price: "5.000.000đ", group: "3.750.000đ", color: ORANGE, items: ["Overview & Tư duy SEO 2026", "Keyword Research & Mapping", "Content SEO (2 buổi thực hành)", "On-page SEO & Schema", "Technical SEO & Core Web Vitals", "Off-page SEO & Link Building", "Tools, Tracking & Chiến lược"] },
-    { name: "GEO", sessions: "8 buổi", duration: "x 2h30", price: "5.000.000đ", group: "3.750.000đ", color: "#3B82F6", items: ["AI Search & GEO Overview", "Technical GEO & llms.txt", "Log file & AI bot analysis", "On-page GEO & E-E-A-T-A", "Prompt Research cho Brand", "Content GEO thân thiện AI", "Off-page GEO & UGOS", "Tracking & Đo lường"] },
-    { name: "COMBO", sessions: "20 buổi", duration: "x 2h30", price: "9.000.000đ", group: "6.750.000đ", color: ORANGE_DARK, popular: true, items: ["Trọn bộ SEO + GEO", "Tiết kiệm 1.000.000đ", "Lộ trình hoàn chỉnh nhất", "Thực hành xuyên suốt", "Ưu tiên hỗ trợ sau khoá"] },
+    { name: "SEO", sessions: "12 buổi", duration: "x 2h30 (~3 tháng, 1 buổi/tuần)", price: "5.000.000đ", group: "3.750.000đ", monthly: "~1.670.000đ", color: ORANGE, items: ["Overview & Tư duy SEO 2026", "Keyword Research & Mapping", "Content SEO (2 buổi thực hành)", "On-page SEO & Schema", "Technical SEO & Core Web Vitals", "Off-page SEO & Link Building", "Tools, Tracking & Chiến lược"] },
+    { name: "GEO", sessions: "8 buổi", duration: "x 2h30 (~2 tháng, 1 buổi/tuần)", price: "5.000.000đ", group: "3.750.000đ", monthly: "~1.670.000đ", color: "#3B82F6", items: ["AI Search & GEO Overview", "Technical GEO & llms.txt", "Log file & AI bot analysis", "On-page GEO & E-E-A-T-A", "Prompt Research cho Brand", "Content GEO thân thiện AI", "Off-page GEO & UGOS", "Tracking & Đo lường"] },
+    { name: "COMBO", sessions: "20 buổi", duration: "x 2h30", price: "9.000.000đ", group: "6.750.000đ", monthly: "~3.000.000đ", color: ORANGE_DARK, popular: true, items: ["Trọn bộ SEO + GEO", "Tiết kiệm 1.000.000đ", "Lộ trình hoàn chỉnh nhất", "Thực hành xuyên suốt", "Ưu tiên hỗ trợ sau khoá"] },
   ];
 
   const projects = [
@@ -257,6 +257,20 @@ export default function App() {
                   <div className="flex items-center gap-2 mb-6">
                     <span className="text-sm font-semibold text-green-400">{pkg.group}</span>
                     <span className="text-xs text-gray-500">/ nhóm 2+ người (-25%)</span>
+                  </div>
+
+                  {/* Installment strip */}
+                  <div className="rounded-xl p-3.5 mb-5" style={{ background: `${pkg.color}10`, border: `1px solid ${pkg.color}30` }}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-bold uppercase tracking-wider" style={{ color: pkg.color }}>Thanh toán 3 tháng</span>
+                      <div className="flex gap-1.5">
+                        {["T1","T2","T3"].map(t => (
+                          <span key={t} className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: `${pkg.color}18`, border: `1px solid ${pkg.color}35`, color: pkg.color }}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <span className="text-lg font-bold text-white" style={{ fontFamily: "Space Grotesk" }}>{pkg.monthly}</span>
+                    <span className="text-xs text-gray-500 ml-1">/ tháng</span>
                   </div>
 
                   <div className="h-px mb-5" style={{ background: DARK_BORDER }} />
