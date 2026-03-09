@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from "react";
 
 const ORANGE = "#F97316";
 const ORANGE_DARK = "#EA580C";
-const ORANGE_LIGHT = "#FFF7ED";
+const ORANGE_LIGHT = "rgba(249,115,22,0.12)";
+const DARK_BG = "#0a0a0c";
+const DARK_CARD = "#141416";
+const DARK_BORDER = "rgba(255,255,255,0.08)";
 
 const AnimatedNumber = ({ value, suffix = "" }) => {
   const [display, setDisplay] = useState(0);
@@ -33,7 +36,7 @@ const AnimatedNumber = ({ value, suffix = "" }) => {
 };
 
 const SectionTag = ({ text }) => (
-  <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border" style={{ color: ORANGE, borderColor: `${ORANGE}30`, background: ORANGE_LIGHT }}>{text}</span>
+  <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border" style={{ color: ORANGE, borderColor: `${ORANGE}40`, background: ORANGE_LIGHT }}>{text}</span>
 );
 
 const CheckIcon = () => (
@@ -93,11 +96,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900" style={{ fontFamily: "'DM Sans', 'Segoe UI', sans-serif" }}>
+    <div className="min-h-screen text-gray-100" style={{ fontFamily: "'DM Sans', 'Segoe UI', sans-serif", background: DARK_BG }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
 
       {/* Nav */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-lg shadow-sm" : "bg-transparent"}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-lg shadow-sm" : "bg-transparent"}`} style={scrolled ? { background: "rgba(10,10,12,0.9)", borderBottom: `1px solid ${DARK_BORDER}` } : {}}>
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="text-lg font-bold tracking-tight" style={{ fontFamily: "Space Grotesk" }}>
             JUSTIN<span style={{ color: ORANGE }}>.SEO</span>
@@ -114,19 +117,19 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
             <SectionTag text="Khoá học SEO & GEO 2026" />
-            <h1 className="text-5xl md:text-6xl font-bold mt-6 leading-tight tracking-tight" style={{ fontFamily: "Space Grotesk" }}>
+            <h1 className="text-5xl md:text-6xl font-bold mt-6 leading-tight tracking-tight text-white" style={{ fontFamily: "Space Grotesk" }}>
               Từ zero đến tự tin
               <br />
               <span style={{ color: ORANGE }}>triển khai SEO</span>
             </h1>
-            <p className="text-lg text-gray-500 mt-6 max-w-xl leading-relaxed">
+            <p className="text-lg text-gray-400 mt-6 max-w-xl leading-relaxed">
               Học 1:1 online cùng người hướng dẫn có 3+ năm kinh nghiệm thực chiến, tổng traffic đạt 500,000+ lượt/tháng. Nội dung cập nhật 2026 bao gồm cả GEO (AI Search Optimization).
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <a href="#pricing" className="px-8 py-3.5 rounded-xl text-white font-semibold transition-all hover:scale-105 shadow-lg" style={{ background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})`, boxShadow: `0 8px 30px ${ORANGE}30` }}>
                 Đăng ký ngay
               </a>
-              <a href="#about" className="px-8 py-3.5 rounded-xl font-semibold border border-gray-200 text-gray-600 hover:border-orange-300 hover:text-orange-600 transition-all">
+              <a href="#about" className="px-8 py-3.5 rounded-xl font-semibold transition-all text-gray-300 hover:text-orange-400" style={{ border: `1px solid ${DARK_BORDER}` }}>
                 Tìm hiểu thêm
               </a>
             </div>
@@ -140,10 +143,10 @@ export default function App() {
               { label: "Hình thức", val: "1:1", sub: "Online linh hoạt" },
               { label: "Hỗ trợ", val: "30", sub: "ngày sau khoá", suffix: " ngày" },
             ].map((s, i) => (
-              <div key={i} className="rounded-2xl p-5 text-center border border-gray-100 hover:border-orange-200 transition-all" style={{ background: i === 0 ? ORANGE_LIGHT : "#FAFAFA" }}>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">{s.label}</p>
+              <div key={i} className="rounded-2xl p-5 text-center transition-all" style={{ background: DARK_CARD, border: `1px solid ${DARK_BORDER}` }}>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">{s.label}</p>
                 <p className="text-2xl font-bold" style={{ color: ORANGE, fontFamily: "Space Grotesk" }}>{s.val}</p>
-                <p className="text-xs text-gray-400 mt-1">{s.sub}</p>
+                <p className="text-xs text-gray-500 mt-1">{s.sub}</p>
               </div>
             ))}
           </div>
@@ -151,17 +154,17 @@ export default function App() {
       </section>
 
       {/* Curriculum */}
-      <section id="curriculum" className="py-20 bg-gray-50/50">
+      <section id="curriculum" className="py-20" style={{ background: DARK_CARD }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <SectionTag text="Chương trình" />
-            <h2 className="text-3xl md:text-4xl font-bold mt-4" style={{ fontFamily: "Space Grotesk" }}>Nội dung khoá học</h2>
-            <p className="text-gray-500 mt-3 max-w-lg mx-auto">Lộ trình bài bản từ nền tảng đến nâng cao, kết hợp lý thuyết và thực hành mỗi buổi.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Nội dung khoá học</h2>
+            <p className="text-gray-400 mt-3 max-w-lg mx-auto">Lộ trình bài bản từ nền tảng đến nâng cao, kết hợp lý thuyết và thực hành mỗi buổi.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* SEO */}
-            <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+            <div className="rounded-2xl overflow-hidden hover:shadow-xl transition-shadow" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
               <div className="px-6 py-4 flex items-center justify-between" style={{ background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})` }}>
                 <span className="text-white font-bold text-lg">SEO</span>
                 <span className="text-white/80 text-sm font-medium">12 buổi x 2h30</span>
@@ -181,11 +184,11 @@ export default function App() {
                   { n: "11", t: "Phân tích dữ liệu & Báo cáo", d: "GSC, GA4, Ahrefs, Semrush. Đọc data, ra quyết định, báo cáo cho client/sếp" },
                   { n: "12", t: "Bài tập cuối khoá", d: "Audit website thật + lập chiến lược SEO 6-12 tháng hoàn chỉnh" },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 py-3.5 border-b border-gray-50 last:border-0">
+                  <div key={i} className="flex gap-4 py-3.5 last:border-0" style={{ borderBottom: i < 11 ? `1px solid ${DARK_BORDER}` : "none" }}>
                     <span className="text-xs font-bold w-10 shrink-0 pt-0.5" style={{ color: ORANGE }}>{item.n}</span>
                     <div>
-                      <p className="font-semibold text-sm">{item.t}</p>
-                      <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{item.d}</p>
+                      <p className="font-semibold text-sm text-gray-100">{item.t}</p>
+                      <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.d}</p>
                     </div>
                   </div>
                 ))}
@@ -193,7 +196,7 @@ export default function App() {
             </div>
 
             {/* GEO */}
-            <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+            <div className="rounded-2xl overflow-hidden hover:shadow-xl transition-shadow" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
               <div className="px-6 py-4 flex items-center justify-between" style={{ background: "linear-gradient(135deg, #3B82F6, #2563EB)" }}>
                 <span className="text-white font-bold text-lg">GEO</span>
                 <span className="text-white/80 text-sm font-medium">8 buổi x 2h30</span>
@@ -209,11 +212,11 @@ export default function App() {
                   { n: "07", t: "Off-page GEO", d: "Organic/Owned/Earned media, UGOS (độc quyền), AI dataset" },
                   { n: "08", t: "Đo lường & Tracking", d: "Citation rate, AI-referred traffic, đo lường visibility trên AI" },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 py-3.5 border-b border-gray-50 last:border-0">
-                    <span className="text-xs font-bold w-10 shrink-0 pt-0.5 text-blue-500">{item.n}</span>
+                  <div key={i} className="flex gap-4 py-3.5 last:border-0" style={{ borderBottom: i < 7 ? `1px solid ${DARK_BORDER}` : "none" }}>
+                    <span className="text-xs font-bold w-10 shrink-0 pt-0.5 text-blue-400">{item.n}</span>
                     <div>
-                      <p className="font-semibold text-sm">{item.t}</p>
-                      <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{item.d}</p>
+                      <p className="font-semibold text-sm text-gray-100">{item.t}</p>
+                      <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.d}</p>
                     </div>
                   </div>
                 ))}
@@ -224,17 +227,17 @@ export default function App() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20">
+      <section id="pricing" className="py-20" style={{ background: DARK_BG }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <SectionTag text="Học phí" />
-            <h2 className="text-3xl md:text-4xl font-bold mt-4" style={{ fontFamily: "Space Grotesk" }}>Chọn gói phù hợp</h2>
-            <p className="text-gray-500 mt-3">Học 1:1 hoặc rủ bạn bè cùng học để được giảm 25%</p>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Chọn gói phù hợp</h2>
+            <p className="text-gray-400 mt-3">Học 1:1 hoặc rủ bạn bè cùng học để được giảm 25%</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {packages.map((pkg, i) => (
-              <div key={i} className={`relative rounded-2xl border overflow-hidden transition-all hover:shadow-xl ${pkg.popular ? "border-2 scale-[1.02]" : "border-gray-100"}`} style={pkg.popular ? { borderColor: pkg.color } : {}}>
+              <div key={i} className={`relative rounded-2xl overflow-hidden transition-all hover:shadow-xl ${pkg.popular ? "scale-[1.02]" : ""}`} style={{ background: DARK_CARD, border: `2px solid ${pkg.popular ? pkg.color : DARK_BORDER}` }}>
                 {pkg.popular && (
                   <div className="absolute top-0 right-0 px-4 py-1 rounded-bl-xl text-xs font-bold text-white" style={{ background: pkg.color }}>
                     Phổ biến nhất
@@ -245,29 +248,29 @@ export default function App() {
                     <div className="w-3 h-3 rounded-full" style={{ background: pkg.color }} />
                     <span className="font-bold text-lg" style={{ fontFamily: "Space Grotesk" }}>{pkg.name}</span>
                   </div>
-                  <p className="text-sm text-gray-400">{pkg.sessions} {pkg.duration}</p>
+                  <p className="text-sm text-gray-500">{pkg.sessions} {pkg.duration}</p>
 
                   <div className="mt-6 mb-1">
                     <span className="text-3xl font-bold" style={{ color: pkg.color, fontFamily: "Space Grotesk" }}>{pkg.price}</span>
-                    <span className="text-sm text-gray-400 ml-2">/ học 1:1</span>
+                    <span className="text-sm text-gray-500 ml-2">/ học 1:1</span>
                   </div>
                   <div className="flex items-center gap-2 mb-6">
-                    <span className="text-sm font-semibold text-green-600">{pkg.group}</span>
-                    <span className="text-xs text-gray-400">/ nhóm 2+ người (-25%)</span>
+                    <span className="text-sm font-semibold text-green-400">{pkg.group}</span>
+                    <span className="text-xs text-gray-500">/ nhóm 2+ người (-25%)</span>
                   </div>
 
-                  <div className="h-px bg-gray-100 mb-5" />
+                  <div className="h-px mb-5" style={{ background: DARK_BORDER }} />
 
                   <ul className="space-y-2.5">
                     {pkg.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-sm text-gray-600">
+                      <li key={j} className="flex items-start gap-2.5 text-sm text-gray-400">
                         <CheckIcon />
                         {item}
                       </li>
                     ))}
                   </ul>
 
-                  <a href="#contact" className="block mt-7 py-3 rounded-xl text-center font-semibold text-sm transition-all hover:scale-[1.02]" style={pkg.popular ? { background: pkg.color, color: "white" } : { background: "#F5F5F5", color: "#333" }}>
+                  <a href="#contact" className="block mt-7 py-3 rounded-xl text-center font-semibold text-sm transition-all hover:scale-[1.02]" style={pkg.popular ? { background: pkg.color, color: "white" } : { background: "rgba(255,255,255,0.06)", color: "#ccc" }}>
                     Đăng ký gói {pkg.name}
                   </a>
                 </div>
@@ -278,34 +281,34 @@ export default function App() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-20 bg-gray-50/50">
+      <section id="about" className="py-20" style={{ background: DARK_CARD }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <SectionTag text="Người hướng dẫn" />
-            <h2 className="text-3xl md:text-4xl font-bold mt-4" style={{ fontFamily: "Space Grotesk" }}>Về Justin</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Về Justin</h2>
           </div>
 
           {/* Profile */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 mb-10">
+          <div className="rounded-2xl p-8 md:p-10 mb-10" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <img src="https://i.ibb.co/sdGYx89N/new-avt.jpg" alt="Justin" className="w-20 h-20 rounded-2xl object-cover shrink-0 shadow-md" loading="lazy" />
               <div className="flex-grow">
-                <h3 className="text-2xl font-bold" style={{ fontFamily: "Space Grotesk" }}>Lê Anh Tuấn <span className="text-gray-400 font-normal text-lg">(Justin)</span></h3>
+                <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "Space Grotesk" }}>Lê Anh Tuấn <span className="text-gray-500 font-normal text-lg">(Justin)</span></h3>
                 <p className="mt-1 font-medium" style={{ color: ORANGE }}>SEO Specialist & Mentor</p>
-                <p className="text-gray-500 mt-4 leading-relaxed max-w-2xl">
+                <p className="text-gray-400 mt-4 leading-relaxed max-w-2xl">
                   3+ năm kinh nghiệm thực chiến SEO đa ngành: Y tế, E-commerce, FMCG, Thể thao. Triển khai dự án SEO cho cả thị trường Việt Nam và quốc tế (Úc, Mỹ, Singapore). Hiện tập trung SEO & GEO cho ngành Aesthetic/Beauty.
                 </p>
                 <div className="flex flex-wrap gap-2 mt-5">
                   {["SEO On/Off-page", "Technical SEO", "GEO", "AI Automation", "Content Strategy", "Meta/TikTok Ads"].map((s, i) => (
-                    <span key={i} className="px-3 py-1.5 rounded-full text-xs font-medium border" style={{ color: ORANGE_DARK, borderColor: `${ORANGE}25`, background: ORANGE_LIGHT }}>{s}</span>
+                    <span key={i} className="px-3 py-1.5 rounded-full text-xs font-medium" style={{ color: ORANGE, borderColor: `${ORANGE}30`, background: ORANGE_LIGHT, border: `1px solid ${ORANGE}30` }}>{s}</span>
                   ))}
                 </div>
                 <div className="flex gap-3 mt-5">
-                  <a href="https://www.linkedin.com/in/le-anh-tuan-digital/" target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border border-gray-200 hover:border-blue-300 hover:text-blue-600 transition-all">
+                  <a href="https://www.linkedin.com/in/le-anh-tuan-digital/" target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-gray-300 hover:text-blue-400 transition-all" style={{ border: `1px solid ${DARK_BORDER}` }}>
                     <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     LinkedIn
                   </a>
-                  <a href="https://www.facebook.com/le.tuan.947316" target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border border-gray-200 hover:border-blue-400 hover:text-blue-500 transition-all">
+                  <a href="https://www.facebook.com/le.tuan.947316" target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-gray-300 hover:text-blue-400 transition-all" style={{ border: `1px solid ${DARK_BORDER}` }}>
                     <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     Facebook
                   </a>
@@ -322,18 +325,18 @@ export default function App() {
               { label: "Ngành", val: "10", suffix: "", sub: "đã triển khai" },
               { label: "KPI", val: "90", suffix: "%+", sub: "đạt target" },
             ].map((s, i) => (
-              <div key={i} className="rounded-2xl border border-gray-100 p-5 text-center bg-white">
+              <div key={i} className="rounded-2xl p-5 text-center" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
                 <p className="text-3xl font-bold" style={{ color: ORANGE, fontFamily: "Space Grotesk" }}>
                   <AnimatedNumber value={s.val} suffix={s.suffix} />
                 </p>
-                <p className="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wider">{s.label} {s.sub}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wider">{s.label} {s.sub}</p>
               </div>
             ))}
           </div>
 
           {/* Journey */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 mb-10">
-            <h3 className="font-bold text-lg mb-6" style={{ fontFamily: "Space Grotesk" }}>Hành trình</h3>
+          <div className="rounded-2xl p-8 mb-10" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+            <h3 className="font-bold text-lg mb-6 text-white" style={{ fontFamily: "Space Grotesk" }}>Hành trình</h3>
             <div className="space-y-0">
               {journey.map((j, i) => (
                 <div key={i} className="flex gap-4 relative">
@@ -343,8 +346,8 @@ export default function App() {
                   </div>
                   <div className="pb-6">
                     <span className="text-xs font-bold" style={{ color: ORANGE }}>{j.year}</span>
-                    <p className="font-semibold text-sm mt-0.5">{j.title}</p>
-                    <p className="text-xs text-gray-400">{j.place}</p>
+                    <p className="font-semibold text-sm mt-0.5 text-gray-100">{j.title}</p>
+                    <p className="text-xs text-gray-500">{j.place}</p>
                   </div>
                 </div>
               ))}
@@ -352,12 +355,12 @@ export default function App() {
           </div>
 
           {/* Projects */}
-          <h3 className="font-bold text-lg mb-5" style={{ fontFamily: "Space Grotesk" }}>Dự án nổi bật</h3>
+          <h3 className="font-bold text-lg mb-5 text-white" style={{ fontFamily: "Space Grotesk" }}>Dự án nổi bật</h3>
           <div className="grid md:grid-cols-2 gap-5">
             {projects.map((p, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="w-full h-40 overflow-hidden relative">
-                  <img src={p.img} alt={p.name} className="w-full h-full object-cover object-left-top" loading="lazy" />
+              <div key={i} className="rounded-2xl overflow-hidden hover:shadow-xl transition-shadow" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+                <div className="w-full overflow-hidden relative">
+                  <img src={p.img} alt={p.name} className="w-full object-contain" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute top-3 right-3">
                     <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm shadow-sm" style={{ color: ORANGE }}>{p.role}</span>
@@ -370,10 +373,10 @@ export default function App() {
                 <div className="p-5">
                   <div className="flex justify-between items-end">
                     <div>
-                      <p className="font-bold text-sm" style={{ color: i % 2 === 0 ? ORANGE : "#3B82F6" }}>{p.result}</p>
-                      <p className="text-xs text-gray-400 mt-0.5">{p.sub}</p>
+                      <p className="font-bold text-sm" style={{ color: i % 2 === 0 ? ORANGE : "#60A5FA" }}>{p.result}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{p.sub}</p>
                     </div>
-                    <span className="text-xs text-gray-300 font-medium">{p.period}</span>
+                    <span className="text-xs text-gray-600 font-medium">{p.period}</span>
                   </div>
                 </div>
               </div>
@@ -383,24 +386,24 @@ export default function App() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20">
+      <section className="py-20" style={{ background: DARK_BG }}>
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
             <SectionTag text="Hỏi đáp" />
-            <h2 className="text-3xl font-bold mt-4" style={{ fontFamily: "Space Grotesk" }}>Câu hỏi thường gặp</h2>
+            <h2 className="text-3xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Câu hỏi thường gặp</h2>
           </div>
-          <div className="rounded-2xl border border-gray-100 overflow-hidden">
+          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${DARK_BORDER}` }}>
             {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-gray-50 last:border-0">
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50/50 transition-colors">
-                  <span className="font-semibold text-sm pr-4">{faq.q}</span>
-                  <svg className={`w-4 h-4 shrink-0 text-gray-400 transition-transform ${openFaq === i ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <div key={i} style={{ borderBottom: i < faqs.length - 1 ? `1px solid ${DARK_BORDER}` : "none" }}>
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors" style={{ background: openFaq === i ? "rgba(255,255,255,0.03)" : "transparent" }}>
+                  <span className="font-semibold text-sm pr-4 text-gray-100">{faq.q}</span>
+                  <svg className={`w-4 h-4 shrink-0 text-gray-500 transition-transform ${openFaq === i ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 {openFaq === i && (
                   <div className="px-6 pb-5">
-                    <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
+                    <p className="text-sm text-gray-400 leading-relaxed">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -410,12 +413,12 @@ export default function App() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="py-20" style={{ background: `linear-gradient(135deg, ${ORANGE}08, ${ORANGE}03)` }}>
+      <section id="contact" className="py-20" style={{ background: DARK_CARD }}>
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "Space Grotesk" }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "Space Grotesk" }}>
             Sẵn sàng bắt đầu?
           </h2>
-          <p className="text-gray-500 mt-4 leading-relaxed">
+          <p className="text-gray-400 mt-4 leading-relaxed">
             Liên hệ ngay để đăng ký hoặc trao đổi thêm về khoá học. Mình sẽ phản hồi trong vòng 24 giờ.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -423,21 +426,24 @@ export default function App() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               Email
             </a>
-            <a href="https://www.linkedin.com/in/le-anh-tuan-digital/" target="_blank" className="px-8 py-3.5 rounded-xl font-semibold border border-gray-200 hover:border-orange-300 transition-all inline-flex items-center justify-center gap-2">
+            <a href="https://zalo.me/0968322059" target="_blank" className="px-8 py-3.5 rounded-xl font-semibold transition-all inline-flex items-center justify-center gap-2 text-gray-300 hover:text-blue-400" style={{ border: `1px solid ${DARK_BORDER}` }}>
+              Zalo
+            </a>
+            <a href="https://www.linkedin.com/in/le-anh-tuan-digital/" target="_blank" className="px-8 py-3.5 rounded-xl font-semibold transition-all inline-flex items-center justify-center gap-2 text-gray-300 hover:text-blue-400" style={{ border: `1px solid ${DARK_BORDER}` }}>
               LinkedIn
             </a>
-            <a href="https://www.facebook.com/le.tuan.947316" target="_blank" className="px-8 py-3.5 rounded-xl font-semibold border border-gray-200 hover:border-blue-300 transition-all inline-flex items-center justify-center gap-2">
+            <a href="https://www.facebook.com/le.tuan.947316" target="_blank" className="px-8 py-3.5 rounded-xl font-semibold transition-all inline-flex items-center justify-center gap-2 text-gray-300 hover:text-blue-400" style={{ border: `1px solid ${DARK_BORDER}` }}>
               Facebook
             </a>
           </div>
-          <p className="text-xs text-gray-400 mt-6">seowithjustin.com</p>
+          <p className="text-xs text-gray-600 mt-6">seowithjustin.com</p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-gray-100">
+      <footer className="py-8" style={{ borderTop: `1px solid ${DARK_BORDER}`, background: DARK_BG }}>
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-xs text-gray-400">© 2026 Lê Anh Tuấn (Justin). SEO with Justin.</p>
+          <p className="text-xs text-gray-600">© 2026 Lê Anh Tuấn (Justin). SEO with Justin.</p>
         </div>
       </footer>
     </div>
