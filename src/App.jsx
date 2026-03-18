@@ -54,9 +54,9 @@ export default function App() {
   }, []);
 
   const packages = [
-    { name: "SEO", sessions: "12 buổi", duration: "x 2h30 (~3 tháng, 1 buổi/tuần)", price: "5.000.000đ", group: "3.750.000đ", monthly: "~1.670.000đ", color: ORANGE, items: ["Overview & Tư duy SEO 2026", "Keyword Research & Mapping", "Content SEO (2 buổi thực hành)", "On-page SEO & Schema", "Technical SEO & Core Web Vitals", "Off-page SEO & Link Building", "Tools, Tracking & Chiến lược"] },
-    { name: "GEO", sessions: "8 buổi", duration: "x 2h30 (~2 tháng, 1 buổi/tuần)", price: "5.000.000đ", group: "3.750.000đ", monthly: "~1.670.000đ", color: "#3B82F6", items: ["AI Search & GEO Overview", "Technical GEO & llms.txt", "Log file & AI bot analysis", "On-page GEO & E-E-A-T-A", "Prompt Research cho Brand", "Content GEO thân thiện AI", "Off-page GEO & UGOS", "Tracking & Đo lường"] },
-    { name: "COMBO", sessions: "20 buổi", duration: "x 2h30", price: "9.000.000đ", group: "7.500.000đ", monthly: "~3.000.000đ", color: ORANGE_DARK, popular: true, items: ["Trọn bộ SEO + GEO", "Tiết kiệm 1.000.000đ", "Lộ trình hoàn chỉnh nhất", "Thực hành xuyên suốt", "Ưu tiên hỗ trợ sau khoá"] },
+    { name: "SEO", sessions: "12 buổi", duration: "x 2h30 (~3 tháng, 1 buổi/tuần)", price: "3.000.000đ", group: "2.550.000đ", monthly: "~1.000.000đ", color: ORANGE, items: ["Overview & Tư duy SEO 2026", "Keyword Research & Mapping", "Content SEO (2 buổi thực hành)", "On-page SEO & Schema", "Technical SEO & Core Web Vitals", "Off-page SEO & Link Building", "Tools, Tracking & Chiến lược"] },
+    { name: "GEO", sessions: "8 buổi", duration: "x 2h30 (~2 tháng, 1 buổi/tuần)", price: "3.000.000đ", group: "2.550.000đ", monthly: "~1.000.000đ", color: "#3B82F6", items: ["AI Search & GEO Overview", "Technical GEO & llms.txt", "Log file & AI bot analysis", "On-page GEO & E-E-A-T-A", "Prompt Research cho Brand", "Content GEO thân thiện AI", "Off-page GEO & UGOS", "Tracking & Đo lường"] },
+    { name: "COMBO", sessions: "20 buổi", duration: "x 2h30", price: "6.000.000đ", group: "4.000.000đ", monthly: "~2.000.000đ", color: ORANGE_DARK, popular: true, items: ["Trọn bộ SEO + GEO", "Tiết kiệm 1.000.000đ", "Lộ trình hoàn chỉnh nhất", "Thực hành xuyên suốt", "Ưu tiên hỗ trợ sau khoá"] },
   ];
 
   const projects = [
