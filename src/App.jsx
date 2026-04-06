@@ -38,7 +38,8 @@ const AnimatedNumber = ({ value, suffix = "" }) => {
 };
 
 const SectionTag = ({ text }) => (
-  <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border" style={{ color: ORANGE, borderColor: `${ORANGE}40`, background: ORANGE_LIGHT }}>{text}</span>
+  <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
+    style={{ color: ORANGE, borderColor: `${ORANGE}40`, background: ORANGE_LIGHT }}>{text}</span>
 );
 
 const CheckIcon = ({ color = ORANGE }) => (
@@ -46,18 +47,6 @@ const CheckIcon = ({ color = ORANGE }) => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
   </svg>
 );
-
-const MiniGraph = ({ data, color = ORANGE }) => {
-  const max = Math.max(...data, 1);
-  const norm = data.map(v => (v / max) * 32);
-  const points = norm.map((v, i) => `${(i * 100) / (norm.length - 1)},${36 - v}`).join(" ");
-  return (
-    <svg viewBox="0 0 100 40" className="w-full h-10 mt-2">
-      <polyline points={points} fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <polyline points={`0,38 ${points} 100,38`} fill={`${color}15`} stroke="none" />
-    </svg>
-  );
-};
 
 export default function App() {
   const [openFaq, setOpenFaq] = useState(0);
@@ -110,17 +99,17 @@ export default function App() {
   ];
 
   const projects = [
-    { name: "Supplements Brand", flag: "🇻🇳", role: "SEO Lead", period: "16 tháng", result: "0 → 25,000 clicks/tháng", sub: "1.2M impressions", color: ORANGE, growth: [2, 5, 8, 15, 22, 35, 48, 65, 82, 95, 110], img: "https://i.postimg.cc/yxbS68mG/Screenshot-24.png" },
-    { name: "Plastic Surgery Clinic", flag: "🇦🇺", role: "SEO Lead", period: "6 tháng", result: "0 → 2,000+ clicks/tháng", sub: "200+ patient leads", color: BLUE, growth: [5, 6, 4, 8, 7, 6, 25, 28, 26, 30, 29, 35, 32, 38], img: "https://i.postimg.cc/KYwPqJmr/Screenshot_16.png" },
-    { name: "Home Appliances", flag: "🇻🇳", role: "SEO Member", period: "6 tháng", result: "18K → 27K clicks/tháng", sub: "1,400 keywords Top 10", color: ORANGE, growth: [20, 22, 21, 25, 24, 28, 26, 30], img: "https://i.postimg.cc/jjmHgZR6/Screenshot_17.png" },
-    { name: "Sportswears Site", flag: "🇻🇳", role: "SEO Member", period: "3 tháng", result: "113K → 164K clicks/tháng", sub: "2,691 keywords Top 3", color: BLUE, growth: [10, 12, 11, 15, 18, 22, 25, 28, 30, 32, 35], img: "https://i.postimg.cc/25MQc2C7/Screenshot_18.png" },
+    { name: "Supplements Brand", flag: "🇻🇳", role: "SEO Lead", period: "16 tháng", result: "0 → 25,000 clicks/tháng", sub: "1.2M impressions", img: "https://i.postimg.cc/yxbS68mG/Screenshot-24.png" },
+    { name: "Plastic Surgery Clinic", flag: "🇦🇺", role: "SEO Lead", period: "6 tháng", result: "0 → 2,000+ clicks/tháng", sub: "200+ patient leads", img: "https://i.postimg.cc/KYwPqJmr/Screenshot_16.png" },
+    { name: "Home Appliances", flag: "🇻🇳", role: "SEO Member", period: "6 tháng", result: "18K → 27K clicks/tháng", sub: "1,400 keywords Top 10", img: "https://i.postimg.cc/jjmHgZR6/Screenshot_17.png" },
+    { name: "Sportswears Site", flag: "🇻🇳", role: "SEO Member", period: "3 tháng", result: "113K → 164K clicks/tháng", sub: "2,691 keywords Top 3", img: "https://i.postimg.cc/25MQc2C7/Screenshot_18.png" },
   ];
 
   const journey = [
     { year: "2025 - Nay", title: "SEO Service & Education", place: "Beauty & Aesthetic, VN Market" },
     { year: "2025", title: "Senior SEO Specialist", place: "Golden Owl Digital" },
     { year: "2023 - 2025", title: "SEO Executive", place: "SEO Băng Tâm" },
-    { year: "Đầu 2023", title: "SEO Intern", place: "SEO Băng Tâm — bắt đầu từ đây" },
+    { year: "Đầu 2023", title: "SEO Intern", place: "SEO Băng Tâm" },
   ];
 
   const faqs = [
@@ -143,7 +132,7 @@ export default function App() {
             JUSTIN<span style={{ color: ORANGE }}>.SEO</span>
           </span>
           <a href="https://zalo.me/0968322059" target="_blank"
-            className="px-5 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+            className="px-5 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90 hover:scale-105"
             style={{ background: ORANGE }}>
             Nhắn Zalo ngay
           </a>
@@ -183,7 +172,7 @@ export default function App() {
               { label: "Hình thức", val: "1:1", sub: "Online linh hoạt" },
               { label: "Hỗ trợ sau khoá", val: "30", sub: "ngày qua Zalo" },
             ].map((s, i) => (
-              <div key={i} className="rounded-2xl p-5 text-center" style={{ background: DARK_CARD, border: `1px solid ${DARK_BORDER}` }}>
+              <div key={i} className="rounded-2xl p-5 text-center transition-all" style={{ background: DARK_CARD, border: `1px solid ${DARK_BORDER}` }}>
                 <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">{s.label}</p>
                 <p className="text-2xl font-bold" style={{ color: ORANGE, fontFamily: "Space Grotesk" }}>{s.val}</p>
                 <p className="text-xs text-gray-500 mt-1">{s.sub}</p>
@@ -203,12 +192,12 @@ export default function App() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {/* SEO */}
-            <div className="rounded-2xl overflow-hidden" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+            <div className="rounded-2xl overflow-hidden hover:shadow-xl transition-shadow" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
               <div className="px-6 py-4 flex items-center justify-between" style={{ background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})` }}>
                 <span className="text-white font-bold text-lg" style={{ fontFamily: "Space Grotesk" }}>SEO</span>
                 <span className="text-white/80 text-sm font-medium">9 buổi x 2h</span>
               </div>
-              <div className="p-6">
+              <div className="p-6 space-y-0">
                 {seoModules.map((item, i) => (
                   <div key={i} className="flex gap-4 py-3.5" style={{ borderBottom: i < seoModules.length - 1 ? `1px solid ${DARK_BORDER}` : "none" }}>
                     <span className="text-xs font-bold w-8 shrink-0 pt-0.5" style={{ color: ORANGE }}>{item.n}</span>
@@ -221,12 +210,12 @@ export default function App() {
               </div>
             </div>
             {/* GEO */}
-            <div className="rounded-2xl overflow-hidden" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+            <div className="rounded-2xl overflow-hidden hover:shadow-xl transition-shadow" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
               <div className="px-6 py-4 flex items-center justify-between" style={{ background: `linear-gradient(135deg, ${BLUE}, ${BLUE_DARK})` }}>
                 <span className="text-white font-bold text-lg" style={{ fontFamily: "Space Grotesk" }}>GEO</span>
                 <span className="text-white/80 text-sm font-medium">6 buổi x 2h</span>
               </div>
-              <div className="p-6">
+              <div className="p-6 space-y-0">
                 {geoModules.map((item, i) => (
                   <div key={i} className="flex gap-4 py-3.5" style={{ borderBottom: i < geoModules.length - 1 ? `1px solid ${DARK_BORDER}` : "none" }}>
                     <span className="text-xs font-bold w-8 shrink-0 pt-0.5 text-blue-400">{item.n}</span>
@@ -246,8 +235,8 @@ export default function App() {
       <section className="py-20" style={{ background: DARK_BG }}>
         <div className="max-w-6xl mx-auto px-6">
           <SectionTag text="Bạn đang ở đâu?" />
-          <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white max-w-lg" style={{ fontFamily: "Space Grotesk" }}>Nghe quen không?</h2>
-          <div className="w-10 h-0.5 mt-4 mb-6 rounded-full" style={{ background: ORANGE }}></div>
+          <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-2 text-white max-w-lg" style={{ fontFamily: "Space Grotesk" }}>Nghe quen không?</h2>
+          <div className="w-10 h-0.5 mt-3 mb-8 rounded-full" style={{ background: ORANGE }}></div>
           <div className="grid md:grid-cols-2 gap-4">
             {[
               "Xem YouTube mãi nhưng không biết áp dụng vào thực tế như thế nào...",
@@ -255,7 +244,7 @@ export default function App() {
               "Đang làm marketing nhưng sếp hỏi về SEO, mình không trả lời được...",
               "Muốn nhận project freelance nhưng không tự tin đủ kỹ năng...",
             ].map((text, i) => (
-              <div key={i} className="p-5 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: `1px solid rgba(255,255,255,0.06)` }}>
+              <div key={i} className="p-5 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
                 <p className="text-sm text-gray-300 leading-relaxed">"{text}"</p>
               </div>
             ))}
@@ -268,7 +257,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6">
           <SectionTag text="Sau khoá học" />
           <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Bạn sẽ làm được gì?</h2>
-          <div className="w-10 h-0.5 mt-4 mb-8 rounded-full" style={{ background: ORANGE }}></div>
+          <div className="w-10 h-0.5 mt-3 mb-8 rounded-full" style={{ background: ORANGE }}></div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { num: "01", title: "Tự triển khai SEO từ A đến Z", desc: "Keyword research, on-page, technical, link building trên website thật. Không cần thuê ngoài." },
@@ -290,8 +279,8 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6">
           <SectionTag text="Quy trình học" />
           <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Học như thế nào?</h2>
-          <div className="w-10 h-0.5 mt-4 mb-10 rounded-full" style={{ background: ORANGE }}></div>
-          <div className="max-w-2xl flex flex-col gap-0">
+          <div className="w-10 h-0.5 mt-3 mb-10 rounded-full" style={{ background: ORANGE }}></div>
+          <div className="max-w-2xl flex flex-col">
             {[
               { n: 1, t: "Nhắn Zalo, trao đổi mục tiêu", d: "Mình sẽ hỏi bạn đang ở đâu, muốn đến đâu, để chọn gói học phù hợp nhất." },
               { n: 2, t: "Học 1:1 qua Google Meet, linh hoạt lịch", d: "Tối các ngày trong tuần, không cố định giờ cứng. Mỗi buổi 2 tiếng thực hành." },
@@ -316,91 +305,111 @@ export default function App() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* ABOUT — giữ nguyên 100% từ bản gốc */}
       <section id="about" className="py-20" style={{ background: DARK_CARD }}>
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
             <SectionTag text="Người hướng dẫn" />
             <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Về Justin</h2>
           </div>
 
           {/* Profile */}
-          <div className="rounded-2xl p-8 md:p-10 mb-8" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+          <div className="rounded-2xl p-8 md:p-10 mb-10" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
             <div className="flex flex-col md:flex-row gap-8 items-start">
-              <img src="https://i.ibb.co/sdGYx89N/new-avt.jpg" alt="Justin" className="w-20 h-20 rounded-2xl object-cover shrink-0" loading="lazy" />
+              <img src="https://i.ibb.co/sdGYx89N/new-avt.jpg" alt="Justin" className="w-20 h-20 rounded-2xl object-cover shrink-0 shadow-md" loading="lazy" />
               <div className="flex-grow">
-                <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "Space Grotesk" }}>
-                  Lê Anh Tuấn <span className="text-gray-500 font-normal text-lg">(Justin)</span>
-                </h3>
-                <p className="mt-1 font-semibold text-sm" style={{ color: ORANGE }}>SEO Specialist & Mentor</p>
-                <p className="text-gray-400 mt-4 leading-relaxed max-w-2xl text-sm">
-                  3+ năm kinh nghiệm thực chiến SEO đa ngành: Y tế, E-commerce, FMCG, Thể thao. Triển khai dự án SEO cho cả thị trường Việt Nam và quốc tế (Úc, Mỹ, Singapore). Hiện tập trung SEO & GEO cho ngành Aesthetic/Beauty và giảng dạy SEO 1:1.
+                <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "Space Grotesk" }}>Lê Anh Tuấn <span className="text-gray-500 font-normal text-lg">(Justin)</span></h3>
+                <p className="mt-1 font-medium" style={{ color: ORANGE }}>SEO Specialist & Mentor</p>
+                <p className="text-gray-400 mt-4 leading-relaxed max-w-2xl">
+                  3+ năm kinh nghiệm thực chiến SEO đa ngành: Y tế, E-commerce, FMCG, Thể thao. Triển khai dự án SEO cho cả thị trường Việt Nam và quốc tế (Úc, Mỹ, Singapore). Hiện tập trung SEO & GEO cho ngành Aesthetic/Beauty.
                 </p>
                 <div className="flex flex-wrap gap-2 mt-5">
-                  {["SEO On/Off-page", "Technical SEO", "GEO", "AI Automation", "Content Strategy"].map((s, i) => (
+                  {["SEO On/Off-page", "Technical SEO", "GEO", "AI Automation", "Content Strategy", "Meta/TikTok Ads"].map((s, i) => (
                     <span key={i} className="px-3 py-1.5 rounded-full text-xs font-medium" style={{ color: ORANGE, background: ORANGE_LIGHT, border: `1px solid ${ORANGE}30` }}>{s}</span>
                   ))}
+                </div>
+                <div className="flex gap-3 mt-5">
+                  <a href="https://www.linkedin.com/in/le-anh-tuan-digital/" target="_blank"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-gray-300 hover:text-blue-400 transition-all"
+                    style={{ border: `1px solid ${DARK_BORDER}` }}>
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+                    LinkedIn
+                  </a>
+                  <a href="https://www.facebook.com/le.tuan.947316" target="_blank"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-gray-300 hover:text-blue-400 transition-all"
+                    style={{ border: `1px solid ${DARK_BORDER}` }}>
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                    Facebook
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Stats typography-driven */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+          {/* Stats — animated */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {[
-              { label: "Năm kinh nghiệm", val: "3", suffix: "+" },
-              { label: "Traffic/tháng quản lý", val: "500,000", suffix: "+" },
-              { label: "Thị trường", val: "4", suffix: "" },
-              { label: "Tỉ lệ đạt KPI", val: "90", suffix: "%" },
+              { label: "Tổng traffic", val: "500000", suffix: "+", sub: "lượt/tháng" },
+              { label: "Dự án", val: "12", suffix: "+", sub: "thành công" },
+              { label: "Ngành", val: "10", suffix: "", sub: "đã triển khai" },
+              { label: "KPI", val: "90", suffix: "%+", sub: "đạt target" },
             ].map((s, i) => (
-              <div key={i}>
-                <p className="font-bold leading-none" style={{ fontSize: "52px", letterSpacing: "-0.04em", color: i % 2 === 0 ? ORANGE : "#fff", fontFamily: "Space Grotesk" }}>
-                  <AnimatedNumber value={s.val.replace(/,/g, "")} />{s.suffix}
+              <div key={i} className="rounded-2xl p-5 text-center" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+                <p className="text-3xl font-bold" style={{ color: ORANGE, fontFamily: "Space Grotesk" }}>
+                  <AnimatedNumber value={s.val} suffix={s.suffix} />
                 </p>
-                <p className="text-sm text-gray-500 mt-2">{s.label}</p>
+                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wider">{s.label} {s.sub}</p>
               </div>
             ))}
           </div>
 
-          {/* Journey + Projects */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Journey */}
-            <div className="rounded-2xl p-7" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
-              <h3 className="font-bold text-lg mb-6 text-white" style={{ fontFamily: "Space Grotesk" }}>Hành trình</h3>
-              <div className="flex flex-col gap-0">
-                {journey.map((j, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className="w-3 h-3 rounded-full border-2 shrink-0 z-10 mt-0.5"
-                        style={{ borderColor: ORANGE, background: i < journey.length - 1 ? ORANGE : "transparent" }} />
-                      {i < journey.length - 1 && <div className="w-px flex-grow my-1" style={{ background: `${ORANGE}20` }} />}
-                    </div>
-                    <div className="pb-5">
-                      <span className="text-xs font-bold" style={{ color: ORANGE }}>{j.year}</span>
-                      <p className="font-semibold text-sm mt-0.5 text-gray-100">{j.title}</p>
-                      <p className="text-xs text-gray-500">{j.place}</p>
-                    </div>
+          {/* Journey */}
+          <div className="rounded-2xl p-8 mb-10" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+            <h3 className="font-bold text-lg mb-6 text-white" style={{ fontFamily: "Space Grotesk" }}>Hành trình</h3>
+            <div className="space-y-0">
+              {journey.map((j, i) => (
+                <div key={i} className="flex gap-4 relative">
+                  <div className="flex flex-col items-center">
+                    <div className="w-3 h-3 rounded-full border-2 shrink-0 z-10 bg-white" style={{ borderColor: ORANGE }} />
+                    {i < journey.length - 1 && <div className="w-0.5 flex-grow" style={{ background: `${ORANGE}20` }} />}
                   </div>
-                ))}
-              </div>
+                  <div className="pb-6">
+                    <span className="text-xs font-bold" style={{ color: ORANGE }}>{j.year}</span>
+                    <p className="font-semibold text-sm mt-0.5 text-gray-100">{j.title}</p>
+                    <p className="text-xs text-gray-500">{j.place}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* Projects */}
-            <div className="rounded-2xl p-7" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
-              <h3 className="font-bold text-lg mb-6 text-white" style={{ fontFamily: "Space Grotesk" }}>Dự án nổi bật</h3>
-              <div className="flex flex-col gap-0">
-                {projects.map((p, i) => (
-                  <div key={i} className="pb-4 mb-4" style={{ borderBottom: i < projects.length - 1 ? `1px solid ${DARK_BORDER}` : "none" }}>
-                    <div className="flex justify-between items-start mb-1">
-                      <p className="font-semibold text-sm text-gray-100">{p.flag} {p.name}</p>
-                      <span className="text-xs text-gray-600">{p.period}</span>
-                    </div>
-                    <p className="text-sm font-semibold" style={{ color: p.color }}>{p.result}</p>
-                    <MiniGraph data={p.growth} color={p.color} />
+          {/* Projects — với ảnh thật từ bản gốc */}
+          <h3 className="font-bold text-lg mb-5 text-white" style={{ fontFamily: "Space Grotesk" }}>Dự án nổi bật</h3>
+          <div className="grid md:grid-cols-2 gap-5">
+            {projects.map((p, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden hover:shadow-xl transition-shadow" style={{ background: DARK_BG, border: `1px solid ${DARK_BORDER}` }}>
+                <div className="w-full overflow-hidden relative">
+                  <img src={p.img} alt={p.name} className="w-full object-contain" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute top-3 right-3">
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm shadow-sm" style={{ color: ORANGE }}>{p.role}</span>
                   </div>
-                ))}
+                  <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                    <span className="text-white text-lg">{p.flag}</span>
+                    <span className="text-white font-bold text-sm">{p.name}</span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <p className="font-bold text-sm" style={{ color: i % 2 === 0 ? ORANGE : "#60A5FA" }}>{p.result}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{p.sub}</p>
+                    </div>
+                    <span className="text-xs text-gray-600 font-medium">{p.period}</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -408,32 +417,39 @@ export default function App() {
       {/* PRICING */}
       <section id="pricing" className="py-20" style={{ background: DARK_BG }}>
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
             <SectionTag text="Học phí" />
             <h2 className="text-3xl md:text-4xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Chọn gói phù hợp</h2>
             <p className="text-gray-400 mt-3">Học nhóm từ 2 người: giảm 25% học phí</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {packages.map((pkg, i) => (
-              <div key={i} className={`relative rounded-2xl transition-all ${pkg.popular ? "scale-[1.02]" : ""}`}
+              <div key={i} className={`relative rounded-2xl overflow-hidden transition-all hover:shadow-xl ${pkg.popular ? "scale-[1.02]" : ""}`}
                 style={{ background: DARK_CARD, border: `2px solid ${pkg.popular ? pkg.color : DARK_BORDER}` }}>
                 {pkg.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold text-white"
-                    style={{ background: ORANGE }}>Phổ biến nhất</div>
+                  <div className="absolute top-0 right-0 px-4 py-1 rounded-bl-xl text-xs font-bold text-white" style={{ background: pkg.color }}>
+                    Phổ biến nhất
+                  </div>
                 )}
                 <div className="p-7">
-                  <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: pkg.color, fontFamily: "Space Grotesk" }}>{pkg.name}</p>
-                  <p className="text-3xl font-bold text-white mt-2" style={{ fontFamily: "Space Grotesk" }}>{pkg.price}</p>
-                  <p className="text-sm text-gray-500 mt-1">{pkg.sessions} {pkg.duration}</p>
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="w-3 h-3 rounded-full" style={{ background: pkg.color }} />
+                    <span className="font-bold text-lg text-white" style={{ fontFamily: "Space Grotesk" }}>{pkg.name}</span>
+                  </div>
+                  <p className="text-sm text-gray-500">{pkg.sessions} {pkg.duration}</p>
 
-                  <div className="rounded-xl p-3.5 mt-5" style={{ background: pkg.colorLight, border: `1px solid ${pkg.colorBorder}` }}>
-                    <p className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: pkg.color }}>Nhóm 2+ người (-25%)</p>
-                    <p className="text-xl font-bold text-green-400" style={{ fontFamily: "Space Grotesk" }}>{pkg.group}</p>
+                  <div className="mt-6 mb-1">
+                    <span className="text-3xl font-bold" style={{ color: pkg.color, fontFamily: "Space Grotesk" }}>{pkg.price}</span>
+                    <span className="text-sm text-gray-500 ml-2">/ học 1:1</span>
+                  </div>
+                  <div className="flex items-center gap-2 mb-6">
+                    <span className="text-sm font-semibold text-green-400">{pkg.group}</span>
+                    <span className="text-xs text-gray-500">/ nhóm từ 2 người (-25%)</span>
                   </div>
 
-                  <div className="h-px my-5" style={{ background: DARK_BORDER }} />
+                  <div className="h-px mb-5" style={{ background: DARK_BORDER }} />
 
-                  <ul className="flex flex-col gap-2.5">
+                  <ul className="space-y-2.5">
                     {pkg.items.map((item, j) => (
                       <li key={j} className="flex items-start gap-2.5 text-sm text-gray-400">
                         <CheckIcon color={pkg.color} />
@@ -444,7 +460,7 @@ export default function App() {
 
                   <a href="https://zalo.me/0968322059" target="_blank"
                     className="block mt-7 py-3 rounded-xl text-center font-semibold text-sm transition-all hover:scale-[1.02]"
-                    style={pkg.popular ? { background: ORANGE, color: "white" } : { background: "rgba(255,255,255,0.06)", color: "#ccc" }}>
+                    style={pkg.popular ? { background: pkg.color, color: "white" } : { background: "rgba(255,255,255,0.06)", color: "#ccc" }}>
                     Đăng ký gói {pkg.name}
                   </a>
                 </div>
@@ -457,7 +473,7 @@ export default function App() {
       {/* FAQ */}
       <section className="py-20" style={{ background: DARK_CARD }}>
         <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <SectionTag text="Hỏi đáp" />
             <h2 className="text-3xl font-bold mt-4 text-white" style={{ fontFamily: "Space Grotesk" }}>Câu hỏi thường gặp</h2>
           </div>
